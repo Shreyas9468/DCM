@@ -7,12 +7,13 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../common/widgets/bottom_bar.dart';
 import '../../../constants/error_handling.dart';
 import '../../../constants/global_varibles.dart';
 import '../../../constants/utils.dart';
 import '../../../models/user.dart';
 import '../../../providers/user_provider.dart';
-import '../../home/home_screen.dart';
+import '../../home/screens/home_screen.dart';
 
 class AuthService {
   // Sign Up User
@@ -78,7 +79,7 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeScreen.routeName,
+            BottomBar.routeName,
                 (route) => false,
           );
         },
